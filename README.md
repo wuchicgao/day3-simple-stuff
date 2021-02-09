@@ -5,7 +5,7 @@ It is possible to get this working from the IBM enterprise git repo, but that is
 following instructions.
 
 ```
-oc new-app --name=simple https://github.com/<your github.com id>/day3-simple-stuff.git
+oc new-app --name=simple https://github.com/<your github.com id>/day3-simple-stuff.git --as-deployment-config
 oc expose svc simple
 oc patch route simple --type=json -p '[{"op": "add", "path": "/spec/tls", "value": {"termination": "edge"}}, {"op": "add", "path": "/spec/port", "value": {"targetPort": "9080-tcp"}}]'
 ```
